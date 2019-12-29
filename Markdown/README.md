@@ -1,4 +1,4 @@
-# Markdown
+# Markdown DevRef
 
 This is a guide that list the most commonly used (almost all) features of markdown used to build the DevNotes Repo.
 
@@ -245,7 +245,7 @@ If any line in a list is indented, it is rendered as a sub list.
    - Sub list item 2
 4. Main list item 4
 
-```
+```markdown
 1. Main list item 1
 2. Main list item 2
    1. Sub list item 1
@@ -279,9 +279,38 @@ Here is an example list:
 - [x] Add lots more useful stuff
 - [ ] Get Github stars ;-)
 
-```
+```markdown
 - [x] Create Github repo to maintain notes
 - [x] Add your notes to repo
 - [x] Add lots more useful stuff
 - [ ] Get Github stars ;-)
+```
+
+### Tables
+
+Markdown spec **does not support tables** but it is supported in GFM. Here are the rules we need to follow to set tables:
+
+1. The first row is used to set the headers. Columns are divided with `|`.
+2. The second row must have `---`'s which denote that this is a table. Each column should have a minimum of three `-`'s.
+3. Colon's are used to specify the alignment on the second row:
+   - All columns are left aligned by default.
+   - Right alignment is specified by having colons on both sides(`:---:`) of the hyphens.
+   - Left alignment is specified by placing a colon on the left side(`---:`) of the hyphens.
+4. The outer `|` is not mandatory.
+5. The markdown does not need to be aligned perfectly for the table to be rendered.
+
+Here is a sample table illustrated below:
+
+| Col 1 Header  | Col 2 Header | Col 3 Header |
+| ------------- | :----------: | -----------: |
+| Col 1 is      |     left     |      aligned |
+| col 2 is      |    center    |      aligned |
+| Col 3 is      |    right     |      aligned |
+
+```markdown
+| Col 1 Header  | Col 2 Header | Col 3 Header |
+| ------------- | :----------: | -----------: |
+| Col 1 is      |     left     |      aligned |
+| col 2 is      |    center    |      aligned |
+| Col 3 is      |    right     |      aligned |
 ```
