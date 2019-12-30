@@ -146,6 +146,59 @@ The same address can be accessed by using an absolute address. We would access t
 
 You can link to a section on the page by copying the link from the *rendered file*. You will have to hover over the section to view the required link.
 
+3. Internal Links on Page:
+
+***
+
+#### Top Link
+
+[Click here](#bottom-link) - to scroll to 'Bottom Link'.***
+
+Have a look at this snippet which links between 'Top Link' and 'Bottom Link':
+
+```markdown
+#### Top Link
+
+[Click here](#bottom-link) - - to scroll to 'Bottom Link'.
+
+.
+
+..
+
+Some content here
+
+..
+
+.
+
+#### Bottom Link
+
+[Click here](#top-link) - to scroll to 'Bottom Link'.
+```
+
+Internal links can be created to link to headings which use preceeding `#`'s. To link to a heading(`# Heading Name`) on the page use the following syntax: `Click [here](#heading-name)`.
+
+Here are the rules that are applied to internal links in a markdown document:
+
+- punctuation marks will be dropped
+- leading white spaces will be dropped
+- upper case will be converted to lower
+- spaces between letters will be converted to -
+
+***
+
+#### Bottom Link
+
+[Click here](#top-link) - to scroll to 'Top Link'.***
+
+#### Place 1
+
+Hello, this is some text to fill in this, [here](#place-2), is a link to the second place.
+
+#### Place 2
+
+Place one has the fun times of linking here, but I can also link back [here](#place-1).
+
 ### Images
 
 Markdown on Github can be used to place an image along with the alt-text describing it as shown below.
