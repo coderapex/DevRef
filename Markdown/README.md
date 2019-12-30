@@ -8,65 +8,118 @@ I love working on [VSCode](https://code.visualstudio.com/) and it is my editor o
 
 Note: **All keyboard shortcuts** mentioned on this repo page are for the Markdown AIO plugin. Also, I will not be elaborating a lot about features particular to the plugin until they are relevant to writing/editing markdown.
 
-## Text Formatting
+## Table of Contents
 
-### Headings
+- [Markdown DevRef](#markdown-devref)
+  - [Table of Contents](#table-of-contents)
+  - [The Purpose of Markdown](#the-purpose-of-markdown)
+  - [Headings](#headings)
+  - [Horizontal Rules](#horizontal-rules)
+  - [Styling text](#styling-text)
+      - [Bold](#bold)
+      - [Italics](#italics)
+      - [Strikethrough](#strikethrough)
+      - [Italics nested within bold text](#italics-nested-within-bold-text)
+      - [Bold + Italic text](#bold--italic-text)
+  - [Quoting](#quoting)
+  - [Links](#links)
+  - [Images](#images)
+  - [Lists](#lists)
+      - [Unordered Lists](#unordered-lists)
+      - [Ordered Lists](#ordered-lists)
+      - [Nested Lists](#nested-lists)
+  - [Escaping\Ignoring Markdown](#escapingignoring-markdown)
+  - [Task Lists](#task-lists)
+  - [Tables](#tables)
+
+---
+
+## The Purpose of Markdown
+
+It is an idea that lets you use simple plain text editors and create well-formatted and intelligently organized documents. Markdown is a format or style of being able to add text formatters like stylizing with bold or italics, adding list, adding links, managing tasks, etc.
+
+Oh, and you can view these documents in HTML with all the rendered bells and whistles.
+
+If you've used Facebook messenger or posted on Reddit, then you've used some flavour of Markdown.
+
+Here are a few advantages of learning markdown:
+
+1. It's clean and easy to write.
+2. It will always be cross-platform as the files are plain text.
+3. It will fit any setup or workflow.
+
+---
+
+## Headings
 
 Heading lines start with #, ##, ... ###### to represent H1 - H6 respectively.
 
-# This is a h1
+Note: I have not rendered H1 - H3 at this location as rendering them at this position in the document as they would break a few markdownlint rules and also break the table of contents. I use [markdownlint](https://marketplace.visualstudio.com/items?itemName=DavidAnson.vscode-markdownlint) plugin by [David Anson](https://github.com/DavidAnson) for linting markdown. The code snippet below shows the markdown to render H1-H3.
 
-## This is a h2
+#### This is a h4 <!-- omit in toc -->
 
-### This is a h3
+##### This is a h5 <!-- omit in toc -->
 
-#### This is a h4
-
-##### This is a h5
-
-###### This is a h6
+###### This is a h6 <!-- omit in toc -->
 
 ```markdown
 # This is a h1
+
 ## This is a h2
+
 ### This is a h3
+
 #### This is a h4
+
 ##### This is a h5
+
 ###### This is a h6
 ```
 
 Alternatively, you can underline with ==== and ---- for h1 and h2 respectively.
 
-This is a h1 level heading
-====
+# This is a h1 level heading <!-- omit in toc -->
 
-This is a h2 level heading
-----
+## This is a h2 level heading <!-- omit in toc -->
 
 ```markdown
-This is a h1 level heading
-====
+# This is a h1 level heading
 
-This is a h2 level heading
-----
+## This is a h2 level heading
 ```
 
-### Styling text
+---
+
+## Horizontal Rules
+
+Use three or more `***`, `---` or `___` to render a horizontal rule. The rendered output looks the same for all three inputs.
+
+---
+
+```markdown
+---
+```
+
+Note: I personally use five `-----`'s to place horizontal rules as it is easy to visually understand them.
+
+---
+
+## Styling text
 
 #### Bold
 
 We can make text **bold** by enclosing them in `**`'s. We can also use **`Ctrl + B`** to make a selection bold if you are using '[Markdown All In One Plugin](https://marketplace.visualstudio.com/items?itemName=yzhang.markdown-all-in-one)' on VSCode (which I highly recommend).
 
 ```markdown
-We can make text **bold** by enclosing them in **'s.
+We can make text **bold** by enclosing them in \*\*'s.
 ```
 
 #### Italics
 
-We can make text *italics* by enclosing them in `*`'s. We can also use **`Ctrl + I`** to make a selection bold if you are using '[Markdown All In One Plugin](https://marketplace.visualstudio.com/items?itemName=yzhang.markdown-all-in-one)' on VSCode (which I highly recommend).
+We can make text _italics_ by enclosing them in `*`'s. We can also use **`Ctrl + I`** to make a selection bold if you are using '[Markdown All In One Plugin](https://marketplace.visualstudio.com/items?itemName=yzhang.markdown-all-in-one)' on VSCode (which I highly recommend).
 
 ```markdown
-We can make text *italics* by enclosing them in *'s.
+We can make text _italics_ by enclosing them in \*'s.
 ```
 
 #### Strikethrough
@@ -89,13 +142,15 @@ We can emphasize text with italics **in a _bold_ statement**
 
 Statements enclosed in \*\*\* will be both bold and italicizes.
 
-We can make text ***both bold and italic*** with three `***`'s.
+We can make text **_both bold and italic_** with three `***`'s.
 
 ```markdown
-We can make text ***both bold and italic*** with three `***`'s.
+We can make text **_both bold and italic_** with three `***`'s.
 ```
 
-### Quoting
+---
+
+## Quoting
 
 A statement or a part of a statement that you do not want to apply markdown to can be `quoted` by enclosing them within \`'s.
 
@@ -112,7 +167,9 @@ These block of lines
 is quoted...
 \`\`\`
 
-### Links
+---
+
+## Links
 
 To create a [link](#), we use the following syntax.
 
@@ -124,7 +181,7 @@ Note: Github automatically creates links for **valid** url's. You can create lin
 
 Markdown allows linking withing the folder structure using relative links.
 
-*Github Flavoured Markdown(GFM) automatically **transforms** the relative address to the absolute address* when it is rendered and you can be assured that the relative links will always work.
+_Github Flavoured Markdown(GFM) automatically **transforms** the relative address to the absolute address_ when it is rendered and you can be assured that the relative links will always work.
 
 1. Relative Links:
 
@@ -144,15 +201,15 @@ The same address can be accessed by using an absolute address. We would access t
 
 2. Section Links:
 
-You can link to a section on the page by copying the link from the *rendered file*. You will have to hover over the section to view the required link.
+You can link to a section on the page by copying the link from the _rendered file_. You will have to hover over the section to view the required link.
 
 3. Internal Links on Page:
 
-***
+---
 
-#### Top Link
+#### Top Link <!-- omit in toc -->
 
-[Click here](#bottom-link) - to scroll to 'Bottom Link'.***
+[Click here](#bottom-link) - to scroll to 'Bottom Link'.\*\*\*
 
 Have a look at this snippet which links between 'Top Link' and 'Bottom Link':
 
@@ -185,21 +242,15 @@ Here are the rules that are applied to internal links in a markdown document:
 - upper case will be converted to lower
 - spaces between letters will be converted to -
 
-***
+---
 
-#### Bottom Link
+#### Bottom Link <!-- omit in toc -->
 
-[Click here](#top-link) - to scroll to 'Top Link'.***
+[Click here](#top-link) - to scroll to 'Top Link'.\*\*\*
 
-#### Place 1
+---
 
-Hello, this is some text to fill in this, [here](#place-2), is a link to the second place.
-
-#### Place 2
-
-Place one has the fun times of linking here, but I can also link back [here](#place-1).
-
-### Images
+## Images
 
 Markdown on Github can be used to place an image along with the alt-text describing it as shown below.
 
@@ -210,7 +261,7 @@ Markdown on Github can be used to place an image along with the alt-text describ
 Format: ![Alt Text](url)
 ```
 
-#### Links placed on images
+#### Links placed on images <!-- omit in toc -->
 
 There is no functionality built in to markdown that allows us to link images to urls, but there are a few workarounds listed below.
 
@@ -229,7 +280,7 @@ The markdown basically comprises of two parts:
 
 2. Image with link to a video.
 
-Please note that this is ***not*** *a different method* than the one listed above.  what I personally do link my videos on my Github repos.
+Please note that this is **_not_** _a different method_ than the one listed above. what I personally do link my videos on my Github repos.
 
 The syntax is the same as the above but we will perform a the extra step of making a custom thumbnail for the video, uploading it to an online service (like Imgur) and using that image in the markdown.
 
@@ -239,7 +290,11 @@ The syntax is the same as the above but we will perform a the extra step of maki
 [![YouTube video on making custom thumbnail](https://i.imgur.com/SrQXBqG.gif)](https://www.youtube.com/watch?v=8YbZuaBP9B8 "WATCH Video - How to Make a YouTube Custom Thumbnail Tutorial")
 ```
 
-### Lists
+---
+
+## Lists
+
+#### Unordered Lists
 
 Preceding a line with `-` or `*` will begin an unordered list.
 
@@ -255,15 +310,17 @@ Preceding a line with `-` or `*` will begin an unordered list.
 
 Using a `*` will have the same effect.
 
-* Here is
-* another
-* list
+- Here is
+- another
+- list
 
 ```markdown
-* Here is
-* another
-* list
+- Here is
+- another
+- list
 ```
+
+#### Ordered Lists
 
 Preceding a line with a number will start a numbered list starting at the number specified.
 
@@ -307,7 +364,9 @@ If any line in a list is indented, it is rendered as a sub list.
 4. Main list item 4
 ```
 
-### Escaping\Ignoring Markdown
+---
+
+## Escaping\Ignoring Markdown
 
 Using a `\` before a character which has a special meaning in markdown is used to ignore\escape it from being formatted in markdown.
 
@@ -317,7 +376,9 @@ For example, if I wanted to render a \*, \` or a \\ as normal text, we will need
 For example, if I wanted to render a \*, \` or a \\ as normal text, we will need to escape it.
 ```
 
-### Task Lists
+---
+
+## Task Lists
 
 Task lists are easy to create with markdown.
 
@@ -339,7 +400,9 @@ Here is an example list:
 - [ ] Get Github stars ;-)
 ```
 
-### Tables
+---
+
+## Tables
 
 Markdown spec **does not support tables** but it is supported in GFM. Here are the rules we need to follow to set tables:
 
@@ -354,16 +417,18 @@ Markdown spec **does not support tables** but it is supported in GFM. Here are t
 
 Here is a sample table illustrated below:
 
-| Col 1 Header  | Col 2 Header | Col 3 Header |
-| ------------- | :----------: | -----------: |
-| Col 1 is      |     left     |      aligned |
-| col 2 is      |    center    |      aligned |
-| Col 3 is      |    right     |      aligned |
+| Col 1 Header | Col 2 Header | Col 3 Header |
+| ------------ | :----------: | -----------: |
+| Col 1 is     |     left     |      aligned |
+| col 2 is     |    center    |      aligned |
+| Col 3 is     |    right     |      aligned |
 
 ```markdown
-| Col 1 Header  | Col 2 Header | Col 3 Header |
-| ------------- | :----------: | -----------: |
-| Col 1 is      |     left     |      aligned |
-| col 2 is      |    center    |      aligned |
-| Col 3 is      |    right     |      aligned |
+| Col 1 Header | Col 2 Header | Col 3 Header |
+| ------------ | :----------: | -----------: |
+| Col 1 is     |     left     |      aligned |
+| col 2 is     |    center    |      aligned |
+| Col 3 is     |    right     |      aligned |
 ```
+
+---

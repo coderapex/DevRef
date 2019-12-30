@@ -17,7 +17,7 @@ The shortcuts listed are mostly default shortcuts. I try to refrain from setting
 ### General Stuff
 
 1. [Auto Complete Tag](https://marketplace.visualstudio.com/items?itemName=formulahendry.auto-complete-tag) (223,336 installs) - This plugin performs the combined task of auto-closing tags and auto-renaming tags.
-2. [Better Comments]() (559,560 installs) - Helps categorize your annotations Alerts, Queries, TODOs, Highlights, etc.
+2. [Better Comments](https://marketplace.visualstudio.com/items?itemName=aaron-bond.better-comments) (559,560 installs) - Helps categorize your annotations Alerts, Queries, TODOs, Highlights, etc.
 
 ## Shortcuts
 
