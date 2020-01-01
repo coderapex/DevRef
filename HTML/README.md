@@ -25,6 +25,11 @@ With that out of the way, here goes nothing...
     - [Body Tag](#body-tag)
     - [Comment Tag](#comment-tag)
     - [Putting Them Together](#putting-them-together)
+  - [Block Level Elements](#block-level-elements)
+    - [Lists](#lists)
+      - [Unordered Lists](#unordered-lists)
+      - [Ordered Lists](#ordered-lists)
+      - [Description Lists](#description-lists)
 
 ---
 
@@ -108,3 +113,89 @@ Here is how the general structure of a HTML Document will look.
 ```
 
 ---
+
+## Block Level Elements
+
+### Lists
+
+HTML Lists are of three types:
+
+1. Unordered Lists
+2. Ordered Lists
+3. Description Lists
+
+#### Unordered Lists
+
+The syntax for unordered lists is :
+
+```html
+<ul>
+  <li>This is</li>
+  <li>an unordered</li>
+  <li>list.</li>
+</ul>
+```
+
+`ul` - Unordered list tag
+`li` - List item tag
+
+#### Ordered Lists
+
+The syntax for ordered lists is very similar to that or unordered list :
+
+```html
+<ol>
+  <li>This is</li>
+  <li>an unordered</li>
+  <li>list.</li>
+</ol>
+```
+
+`ol` - Ordered list tag
+`li` - List item tag
+
+**OUTPUT**:
+
+<ol>
+  <li>This is</li>
+  <li>an unordered</li>
+  <li>list.</li>
+</ol>
+
+#### Description Lists
+
+Description lists are lists with key value pairs. The syntax for description lists is :
+
+```html
+<p>Making Power-Puff Girls</p>
+
+<dl>
+  <dt>Sugar</dt>
+  <dd>A large jar of white and brown sugar.</dd>
+
+  <dt>Spice</dt>
+  <dd>ALL of them.</dd>
+
+  <dt>Everything Nice</dt>
+  <dd>Chocolates, candies and more.</dd>
+</dl>
+```
+
+`dl` - Description list
+`dt` - Description title
+`dd` - Description details
+
+**OUTPUT**:
+
+<p>Making Power-Puff Girls</p>
+
+<dl>
+  <dt>Sugar</dt>
+  <dd>A large jar of white and brown sugar.</dd>
+
+  <dt>Spice</dt>
+  <dd>ALL of them.</dd>
+
+  <dt>Everything Nice</dt>
+  <dd>Chocolates, candies and more. </dd>
+</dl>

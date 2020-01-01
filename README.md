@@ -6,6 +6,7 @@ A collection of friendly developer notes for future self-reference.
 
 I personally work with Javascript and the frameworks in the ecosystem. I have recently begun exploring Python. Find below the list of DevRef Notes I maintain for the technologies that I am fond of.
 
+- [Git](Git/README.md)
 - [HTML](HTML/README.md)
 - [Markdown](Markdown/README.md)
 - [Python](/Python/README.md)

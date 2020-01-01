@@ -29,6 +29,10 @@ Note: **All keyboard shortcuts** mentioned on this repo page are for the Markdow
       - [Ordered Lists](#ordered-lists)
       - [Nested Lists](#nested-lists)
   - [Escaping\Ignoring Markdown](#escapingignoring-markdown)
+  - [Code Highlighting And Blocks](#code-highlighting-and-blocks)
+    - [Inline](#inline)
+    - [Fenced Blocks](#fenced-blocks)
+    - [Code Highlighting](#code-highlighting)
   - [Task Lists](#task-lists)
   - [Tables](#tables)
 
@@ -76,18 +80,6 @@ Note: I have not rendered H1 - H3 at this location as rendering them at this pos
 ###### This is a h6
 ```
 
-Alternatively, you can underline with ==== and ---- for h1 and h2 respectively.
-
-# This is a h1 level heading <!-- omit in toc -->
-
-## This is a h2 level heading <!-- omit in toc -->
-
-```markdown
-# This is a h1 level heading
-
-## This is a h2 level heading
-```
-
 ---
 
 ## Horizontal Rules
@@ -108,19 +100,23 @@ Note: I personally use five `-----`'s to place horizontal rules as it is easy to
 
 #### Bold
 
-We can make text **bold** by enclosing them in `**`'s. We can also use **`Ctrl + B`** to make a selection bold if you are using '[Markdown All In One Plugin](https://marketplace.visualstudio.com/items?itemName=yzhang.markdown-all-in-one)' on VSCode (which I highly recommend).
+We can make text **bold** by enclosing them in `**`'s.
 
 ```markdown
 We can make text **bold** by enclosing them in \*\*'s.
 ```
 
+We can also use **`Ctrl + B`** to make a selection bold if you are using '[Markdown All In One Plugin](https://marketplace.visualstudio.com/items?itemName=yzhang.markdown-all-in-one)' on VSCode (which I highly recommend).
+
 #### Italics
 
-We can make text _italics_ by enclosing them in `*`'s. We can also use **`Ctrl + I`** to make a selection bold if you are using '[Markdown All In One Plugin](https://marketplace.visualstudio.com/items?itemName=yzhang.markdown-all-in-one)' on VSCode (which I highly recommend).
+We can make text _italics_ by enclosing them in `*`'s.
 
 ```markdown
 We can make text _italics_ by enclosing them in \*'s.
 ```
+
+We can also use **`Ctrl + I`** to make a selection bold if you are using '[Markdown All In One Plugin](https://marketplace.visualstudio.com/items?itemName=yzhang.markdown-all-in-one)' on VSCode (which I highly recommend).
 
 #### Strikethrough
 
@@ -211,6 +207,8 @@ You can link to a section on the page by copying the link from the _rendered fil
 
 [Click here](#bottom-link) - to scroll to 'Bottom Link'.\*\*\*
 
+---
+
 Have a look at this snippet which links between 'Top Link' and 'Bottom Link':
 
 ```markdown
@@ -233,7 +231,7 @@ Some content here
 [Click here](#top-link) - to scroll to 'Bottom Link'.
 ```
 
-Internal links can be created to link to headings which use preceeding `#`'s. To link to a heading(`# Heading Name`) on the page use the following syntax: `Click [here](#heading-name)`.
+Internal links can be created to link to headings which use preceding `#`'s. To link to a heading(`# Heading Name`) on the page use the following syntax: `Click [here](#heading-name)`.
 
 Here are the rules that are applied to internal links in a markdown document:
 
@@ -375,6 +373,57 @@ For example, if I wanted to render a \*, \` or a \\ as normal text, we will need
 ```markdown
 For example, if I wanted to render a \*, \` or a \\ as normal text, we will need to escape it.
 ```
+
+If the word or phrase that you want to display uses one or more backticks, you can escape it by enclosing it in double backticks` (``) `.
+
+`` Add `this code` to your file. ``
+
+```markdown
+`` Add `this code` to your file. ``
+```
+
+---
+
+## Code Highlighting And Blocks
+
+### Inline
+
+You can highlight some code inline by enclosing it in backticks(`).
+
+Type `this code` in your editor.
+
+```markdown
+Type `this code` in your editor.
+```
+
+### Fenced Blocks
+
+A multi-line snippet of code can be shown by enclosing it between three backticks.
+
+```
+sample
+.
+code
+.
+here
+```
+
+### Code Highlighting
+
+GFM supports syntax highlighting. You will place the name of the language whose syntax highlighting you want after the opening triple backticks.
+
+The snippet below is in Python:
+
+```python
+ten = 10
+print(ten)
+```
+
+I personally use this feature to highlight code for just the handful of web development languages I use(HTML/CSS, Javascript, Python and maybe Java).
+
+Github itself refers you to checkout the [highlight.js demo page](https://highlightjs.org/static/demo/) to have a look at all the languages that are supported byt his feature.
+
+But, behind the scenes, Github actually uses [linguist](https://github.com/github/linguist) to detect the languages. Here is the list of [all the languages supported](https://github.com/github/linguist/blob/master/lib/linguist/languages.yml).
 
 ---
 
