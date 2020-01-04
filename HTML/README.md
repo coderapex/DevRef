@@ -39,6 +39,8 @@ HTML stands for `Hyper Text Markup Language`; the same `Hypertext` in `http:\\` 
 
 HTML works hand in hand with CSS and Javascript to make webpages look good and respond to our actions respectively. We can use a couple of analogies to understand how they interact with each other.
 
+A complete list of HTML tags is can be referenced here on the MDN [HTML Elements Reference Page](https://developer.mozilla.org/en-US/docs/Web/HTML/Element).
+
 ### Analogies To Understand HTML, CSS And Javascript
 
 #### Analogy Of The Human Body
@@ -139,6 +141,14 @@ The syntax for unordered lists is :
 `ul` - Unordered list tag
 `li` - List item tag
 
+**OUTPUT**:
+
+<ul>
+  <li>This is</li>
+  <li>an unordered</li>
+  <li>list.</li>
+</ul>
+
 #### Ordered Lists
 
 The syntax for ordered lists is very similar to that or unordered list :
@@ -146,7 +156,7 @@ The syntax for ordered lists is very similar to that or unordered list :
 ```html
 <ol>
   <li>This is</li>
-  <li>an unordered</li>
+  <li>an ordered</li>
   <li>list.</li>
 </ol>
 ```
@@ -158,7 +168,7 @@ The syntax for ordered lists is very similar to that or unordered list :
 
 <ol>
   <li>This is</li>
-  <li>an unordered</li>
+  <li>an ordered</li>
   <li>list.</li>
 </ol>
 
