@@ -15,9 +15,26 @@ CSS is a stylesheet language that is used to describe the presentation of a HTML
   - [CSS Selectors For Tags](#css-selectors-for-tags)
   - [CSS Selectors For Classes](#css-selectors-for-classes)
   - [CSS Selectors For ID's](#css-selectors-for-ids)
-  - [CSS Selectors For Peudo-Classes](#css-selectors-for-peudo-classes)
+  - [CSS Selectors For Pseudo-Classes](#css-selectors-for-pseudo-classes)
   - [CSS Selectors For Attributes](#css-selectors-for-attributes)
   - [Multiple Selectors](#multiple-selectors)
+- [Display and Positioning with CSS](#display-and-positioning-with-css)
+  - [CSS Display Property](#css-display-property)
+  - [Z-index Property](#z-index-property)
+  - [Units: Absolute or Relative](#units-absolute-or-relative)
+    - [Absolute Units](#absolute-units)
+    - [Relative Units](#relative-units)
+- [Typography](#typography)
+  - [Text Alignment](#text-alignment)
+  - [Text Decoration](#text-decoration)
+  - [Text Spacing](#text-spacing)
+- [Fonts](#fonts)
+  - [Font Family](#font-family)
+  - [Font Weight and Style](#font-weight-and-style)
+  - [External Fonts](#external-fonts)
+- [Flexbox](#flexbox)
+  - [How to Flex](#how-to-flex)
+    - [Steps to Set Flexbox](#steps-to-set-flexbox)
 
 ---
 
@@ -73,7 +90,7 @@ You can use the `<link>` element to link HTML and CSS files together. The `<link
 - `rel` — this attribute describes the relationship between the HTML file and the CSS file.
   Because you are linking to a stylesheet, the value of rel should be set to stylesheet.
 
-When linking an HTML file and a CSS file together, the <link> element will look like the following:
+When linking an HTML file and a CSS file together, the `<link>` element will look like the following:
 
 ```html
 <link href="www.abc.com/style.css" type="text/css" rel="stylesheet" />
@@ -187,7 +204,7 @@ SYNATAX:
 }
 ```
 
-### CSS Selectors For Peudo-Classes
+### CSS Selectors For Pseudo-Classes
 
 dasdf
 
@@ -241,3 +258,188 @@ h6 {
 ```
 
 The advantage of doing this is that all the declartions are in a single place and when we do want to make changes to the headings, we will need to do it at a single place.
+
+## Display and Positioning with CSS
+
+### CSS Display Property
+
+CSS display property determines the outside display options of an element. The biggest distinction between the outside display options is whether if the element will occupy the entire line or if the elements be displayed next to each other.
+
+CSS display has 4 main properties:
+
+- `display: block` - Each element will be displayed independently on its own line one after another.
+- `display: inline` - Each element is displayed next to each other side by side on the same line.
+  - `display: inline` elements do not have any height or width properties.
+  - They are usually used to set properties to elements that are displayed in the middle of elements, like highlighting some text in the middle of a sentence.
+- `display: inline-block` - Each element will be displayed as a block with height and width properties and will be displayed inline.
+- `display: none`
+
+### Z-index Property
+
+If two elements overlap in the display window, we can use the `z-index` and give it a value to control which element is displayed above which one. The element with the _higher value_ is displayed above the element with the lower value.
+
+If element `one` has `z-index: 1` and element `two` has `z-index: -1`, then element `one` will be displayed over element `two` even if it comes after element `two` in the HTML file. This is determined by the `z-index` property.
+
+### Units: Absolute or Relative
+
+Units of measurement in CSS can be categorized into absolute and relative units. Absolute units are ones that are fixed irrespective of the conditions in which the content is being displayed.
+
+If you set the size of some element to `50 px`, it would occupy only `50 px` irrespective of whether if the user had a standard display resolution display or a very high resolution display like a retina display.
+
+But if you would use a relative unit, like `50%` width, then the elements absolute size(measure in how many pixels it would occupy on the screen) would vary from device to device and size of the display port.
+
+#### Absolute Units
+
+Absolute units in CSS are:
+
+- `px`
+- `mm`
+- `cm`
+- `inch`
+
+The usage of absolute units is straight forward. The element will occupy the size spaecified.
+
+#### Relative Units
+
+Relative units in CSS are measured relative to some base unit. The relative units used in CSS are:
+
+- `%` - percentage of something like screen width
+- `em` - value equivalent of the current font size. If current font size is 10 px, then 5 em would be 50 px.
+- `vw` - units of viewport width. The complete viewport is divided into 100 equal units.
+- `vh` - similar to `vw` but the division is along the height.
+
+## Typography
+
+Typography is all about the spacing and the distance between words and paragraphs in CSS. E can control how the words will display with CSS properties that will control aspects such as `font-weight`, `line-height`, `alignment`, etc.
+
+### Text Alignment
+
+Text can me aligned with the `text-align` property in the following directions:
+
+- left
+- center
+- right
+
+```css
+p {
+  text-align: left;
+}
+```
+
+### Text Decoration
+
+The `text-decoration` property can be used to underline and strike through text. The `text-decoration-line` acceptable values are:
+
+- overline
+- underline
+- line-through
+- underline overline
+
+SYNTAX:
+
+`text-decoration: text-decoration-line text-decoration-color text-decoration-style|initial|inherit;`
+
+EXAMPLE:
+
+```css
+h1 {
+  text-decoration: underline dotted red;
+}
+```
+
+### Text Spacing
+
+Line height properties are used to determine the spacing between paragraphs and lines. We can alter and modify these by altering these properties:
+
+- `margin-top`/`padding-top`
+- `margin-bottom`/`padding-bottom`
+- `line-height` - sets the spacing between lines in the same paragraph
+
+## Fonts
+
+### Font Family
+
+`font-family` defines the typeface for the element selected. It accepts multiple values because not all users will have the same fonts installed.
+
+When the browser comes across the declared fonts, it starts looking for the availability of the fonts from left to right and checks to see if it can render the text using the font(s) you've provided. If it can't use the first font, then the browser moves to the next font, and so-on.
+
+### Font Weight and Style
+
+Font weights are expressed as numeric values between 100 and 900. Fortunately, there are relatively standardized, human-friendly terms for each of these numeric values. “Black” usually means 900, “bold” is 700, “regular” is 400, etc.
+
+Font weights are declared with the `font-weight` property.
+
+### External Fonts
+
+External fonts can be linked in many different ways. One of the popular ways to use Google Fonts CDN and import a font to be used.
+
+We can import the font by declaring it in the `<head>` section of the HTML document.
+
+```html
+<head>
+  <link
+    href="https://fonts.googleapis.com/css?family=Montserrat&display=swap"
+    rel="stylesheet"
+  />
+</head>
+```
+
+Then, we can use the font in our styles by declaring the font name.
+
+```css
+.p {
+  font-family: "Montserrat", sans-serif;
+}
+```
+
+## Flexbox
+
+- Flexbox helps us distribute and align elements within a container
+- A flex container can expand to contain and fit the elements inside it
+- The `container` contains the elements and the elements contained inside it are called `items`
+- To use flexbox, we need to set the `display` property of an element to `flex` and we can start displaying items within it
+
+### How to Flex
+
+- Flexbox has relies on two main axes - the main axis and the cross axis. :
+
+  - Direction: It is the main axes with 4 possible settings:
+    - `Row`
+    - `Row-Reverse`
+      - The two row settings will set the main axis horizontally or inline
+    - `Column`
+    - `Column-Reverse`
+      - The two column settings will set the main axis vertically or block aligned
+  - Axes
+    - Whichever axis is not the main direction will be the alternate axis.
+    - Eg: If the main direction is set to `row` then the alternate axis is set to `column`
+
+#### Steps to Set Flexbox
+
+1. Set the display property of the parent container to flex:
+
+```css
+.container {
+  display: flex;
+}
+```
+
+2. State whether the content should be laid out in rows or columns using the `flex-direction` property and if they should be in the forward or reverse direction.
+
+```css
+.container {
+  display: flex;
+  flex-direction: row;
+}
+```
+
+3. Order of the items can be specified to determine the order in which the items will appear.
+
+There are three ways to explicitly set the order in which items will appear in a grid.
+
+1. Moving the HTML code for the elements themselves to reorder
+2. Appending `-reverse` to `row` or `column` will reverse the order in the specified row or column
+3. Using the `order` property of the individual items inside the grid
+
+```css
+```

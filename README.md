@@ -11,3 +11,5 @@ I personally work with Javascript and the frameworks in the ecosystem. I have re
 - [HTML](HTML/README.md)
 - [Markdown](Markdown/README.md)
 - [Python](/Python/README.md)
+
+Note: Certain parts of the material on this repo have been copy-pasted from different sources on the Internet. Not all of the content in these DevRef's is owned by me and the sources to the copy-pasted material are not mentioned.
