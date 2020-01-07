@@ -34,7 +34,11 @@ CSS is a stylesheet language that is used to describe the presentation of a HTML
   - [External Fonts](#external-fonts)
 - [Flexbox](#flexbox)
   - [How to Flex](#how-to-flex)
-    - [Steps to Set Flexbox](#steps-to-set-flexbox)
+  - [Steps to Set Flexbox](#steps-to-set-flexbox)
+  - [Align and Justify Content](#align-and-justify-content)
+- [CSS Grid](#css-grid)
+  - [Grid Rows and Columns](#grid-rows-and-columns)
+  - [Grid Areas](#grid-areas)
 
 ---
 
@@ -414,7 +418,7 @@ Then, we can use the font in our styles by declaring the font name.
     - Whichever axis is not the main direction will be the alternate axis.
     - Eg: If the main direction is set to `row` then the alternate axis is set to `column`
 
-#### Steps to Set Flexbox
+### Steps to Set Flexbox
 
 1. Set the display property of the parent container to flex:
 
@@ -439,7 +443,127 @@ There are three ways to explicitly set the order in which items will appear in a
 
 1. Moving the HTML code for the elements themselves to reorder
 2. Appending `-reverse` to `row` or `column` will reverse the order in the specified row or column
-3. Using the `order` property of the individual items inside the grid
+3. Using the `order` property of the individual items inside the grid. The lower the order value, the earlier the item will be rendered.
+
+Consider this snippet of `html` that contains a flex `container` and three `box` items within it.
+
+```html
+<div class="container">
+  <div class="box" id="one">Box 1</div>
+  <div class="box" id="two">Box 2</div>
+  <div class="box" id="three">Box 3</div>
+</div>
+```
+
+With the corresponding CSS:
 
 ```css
+.container {
+  display: flex;
+  flex-direction: column;
+}
+
+.box {
+  width: 100px;
+  height: 100px;
+  background-color: gray;
+}
 ```
+
+We can set the order in which the items will be displayed by altering the `order` value in the css. If all the elements that have the same `order` value, then the elements will appear in the order in which they are placed in the HTML file.
+
+In this case the order of the elements will be one, two and three.
+
+```css
+#one {
+  order: 1;
+}
+#two {
+  order: 1;
+}
+#three {
+  order: 1;
+}
+```
+
+Consider this case with the changed values of `order`:
+
+```css
+#one {
+  order: 30;
+}
+#two {
+  order: 20;
+}
+#three {
+  order: 10;
+}
+```
+
+In this case, the element `#three` has the lowest `order` value, therefore will be rendered first. This will be followed by element `#two` which has the next lowest value and lastly element `#one` which has the highest value.
+
+### Align and Justify Content
+
+Two CSS properties are used to align the elements with flexbox:
+
+- `justify-content` - is used to align content along the main axis. The properties it accepts are:
+  - `flex-start`
+  - `flex-end`
+  - `center`
+  - `space-around`
+  - `space-between`
+  - `space-evenly`
+- `align-items` - is used to align content along the cross axis. The properties it accepts are:
+  - `stretch`
+  - `flex-start`
+  - `flex-end`
+  - `center`
+
+## CSS Grid
+
+Flexbox is for how content flows, Grid is for how content is placed - i.e. grid works nicely for page layouts, flex works nicely for regions within the grid.
+
+Grid and Flexbox must be used together to compensate for the shortcomings of each other. At the highest level CSS Grid excels at creating layouts for a webpage, while Flexbox is a master of content flow for each element that makes up the page layout.
+
+Comparing Grid and Flexbox, we can see that:
+
+- Grid is two dimensional, while Flex is one
+- Grid is layout first, while Flexbox is content first
+- Flex is for components of an app, Grid is for the app layout itself
+
+To test run how Grid works, check out this [awesome CSS Grid Generator](https://cssgrid-generator.netlify.com/) developed by [Sarah Drasner](https://github.com/sdras/).
+
+### Grid Rows and Columns
+
+We can set the rows and columns of a grid by using a few CSS Grid settings:
+
+```css
+.container {
+  display: grid;
+  grid-template-columns: 35vw 35vw;
+  grid-template-rows: 45vh 45vh;
+  grid-gap: 15px;
+}
+```
+
+Note: `grid-gap` has been depreciated. Please use `grid-gap-row` and `grid-gap-column` instead.
+
+Let us look at the `column` and `row` settings in a little more detail:
+
+- `grid-template-columns: 35vw 35vw;` - sets the number of columns and the width of the columns. The numbers implicitly indicate the number of columns the grid will have. This grid will have two columns.
+- `grid-template-rows: 45vh 45vh;` - sets the number of rows and their widths. This grid will have two rows.
+- `grid-gap: 15px;` - sets the gap between the columns and rows.
+
+### Grid Areas
+
+`grid-area` is used to set the columns and rows that a particular grid item will occupy.
+
+```css
+.item {
+  grid-area: 1/2/3/3;
+}
+```
+
+`grid-area` is short hand for the following four properties: `grid-row-start`, `grid-column-start`, `grid-row-end` and `grid-column-end`.
+
+In the example above, `grid-area: 1/2/3/3` will place the item from rows 1-3, and columns 2-3.
