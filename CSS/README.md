@@ -32,6 +32,8 @@ CSS is a stylesheet language that is used to describe the presentation of a HTML
   - [Font Family](#font-family)
   - [Font Weight and Style](#font-weight-and-style)
   - [External Fonts](#external-fonts)
+- [Media Queries](#media-queries)
+  - [Multiple Breakpoints](#multiple-breakpoints)
 - [Flexbox](#flexbox)
   - [How to Flex](#how-to-flex)
   - [Steps to Set Flexbox](#steps-to-set-flexbox)
@@ -58,7 +60,7 @@ There are three ways in which we can link CSS to HTML.
 
 You can add multiple style rules to inline styles.
 
-```css
+```html
 <p style="color: red; font-size: 20px;">I'm learning to code!</p>
 ```
 
@@ -396,6 +398,56 @@ Then, we can use the font in our styles by declaring the font name.
 }
 ```
 
+## Media Queries
+
+Expressions that we can add to our code to that can modify our website based on the characteristics of the device that the website is being viewed.
+
+There are a couple of important things that we need to pay attention to when we set media queries:
+
+- `breakpoints` - used to set the `viewport` width at which the layout should change.
+- The styles that are written in the media query will come into effect when the page is viewed on a viewport width higher than what we have specified.
+
+SYNTAX:
+
+```css
+@media (feature: value) {
+  /* settings here */
+}
+```
+
+EXAMPLE:
+
+```css
+@media (min-width: 900px) {
+  body {
+    background: red;
+  }
+}
+```
+
+### Multiple Breakpoints
+
+We can specify more than one breakpoints to set up different layouts. For example, if we wanted to design three layouts for mobile, tablet and desktop, we could do something like this:
+
+```css
+.container {
+  /* settings for small/mobile screens */
+}
+
+@media (min-width: 600px) and (max-width: 899px) {
+  .container {
+    /* rules for medium-sized screen */
+  }
+}
+
+/* Large Screens */
+@media (min-width: 900px) {
+  .container {
+    /* rules for large screen */
+  }
+}
+```
+
 ## Flexbox
 
 - Flexbox helps us distribute and align elements within a container
@@ -506,14 +558,14 @@ In this case, the element `#three` has the lowest `order` value, therefore will 
 
 Two CSS properties are used to align the elements with flexbox:
 
-- `justify-content` - is used to align content along the main axis. The properties it accepts are:
+- `justify-content` - is used to align content along the `main axis`. The properties it accepts are:
   - `flex-start`
   - `flex-end`
   - `center`
   - `space-around`
   - `space-between`
   - `space-evenly`
-- `align-items` - is used to align content along the cross axis. The properties it accepts are:
+- `align-items` - is used to align content along the `cross axis`. The properties it accepts are:
   - `stretch`
   - `flex-start`
   - `flex-end`
@@ -551,7 +603,10 @@ Note: `grid-gap` has been depreciated. Please use `grid-gap-row` and `grid-gap-c
 Let us look at the `column` and `row` settings in a little more detail:
 
 - `grid-template-columns: 35vw 35vw;` - sets the number of columns and the width of the columns. The numbers implicitly indicate the number of columns the grid will have. This grid will have two columns.
+  - Alternatively you can use `repeat()` syntax if you are creating columns with equal widths. The syntax would be `grid-template-columns: repeat(3, 100px;`.
 - `grid-template-rows: 45vh 45vh;` - sets the number of rows and their widths. This grid will have two rows.
+  - Alternatively you can use `repeat()` syntax if you are creating rows with equal widths. The syntax would be `grid-template-rows: repeat(3, 100px;`.
+  - Defining the rows in the above ways limits the number of rows that a grid can have. We can automate the row generation with `grid-auto-rows: minmax(100px, auto)`.
 - `grid-gap: 15px;` - sets the gap between the columns and rows.
 
 ### Grid Areas
@@ -567,3 +622,10 @@ Let us look at the `column` and `row` settings in a little more detail:
 `grid-area` is short hand for the following four properties: `grid-row-start`, `grid-column-start`, `grid-row-end` and `grid-column-end`.
 
 In the example above, `grid-area: 1/2/3/3` will place the item from rows 1-3, and columns 2-3.
+
+Areas can also be defined with names. For example:
+
+```css
+container {
+}
+```
