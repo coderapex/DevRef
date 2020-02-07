@@ -28,11 +28,12 @@
     - [Adding Multiple Styles At Once](#adding-multiple-styles-at-once)
     - [Setting An Element's Attributes](#setting-an-elements-attributes)
     - [Accessing an Element's Classes](#accessing-an-elements-classes)
-      - [The .classList Property](#the-classlist-property)
-    - [The .classList Property](#the-classlist-property-1)
+    - [The .classList Property](#the-classlist-property)
   - [DOM Events](#dom-events)
     - [Event Listener](#event-listener)
     - [Event Phases](#event-phases)
+- [Asynchronous JavaScript](#asynchronous-javascript)
+  - [JavaScript Promises](#javascript-promises)
 
 ## Destructuring
 
@@ -391,27 +392,6 @@ The above code **erases any classes** that were originally in the element's clas
 
 Since `.className` returns a string, it makes it hard to add or remove individual classes. We can convert the string to an array and then use different Array Methods to search for a class remove it from the list, and then update the `.className` with the remaining classes.
 
-##### The .classList Property
-
-The `.classList` property is newer than the `.className` property and is preference to use:
-
-```html
-<h1 id="main-heading" class="ank-student jpk-modal">
-  Learn Web Development at Udacity
-</h1>
-;
-```
-
-```javascript
-const mainHeading = document.querySelector("#main-heading");
-
-// store the list of classes in a variable
-const listOfClasses = mainHeading.classList;
-
-// logs out ["ank-student", "jpk-modal"]
-console.log(listOfClasses);
-```
-
 #### The .classList Property
 
 `classList()` returns a DOMTokenList.
@@ -462,3 +442,61 @@ mainHeading.addEventListener("click", function() {
 ```
 
 #### Event Phases
+
+## Asynchronous JavaScript
+
+### JavaScript Promises
+
+You can think of Promises as a special function that either satisfy (`resolve`) or fail (`reject`) to execute a task, and then executes the corresponding actions, usually another task with the returned data in the case of 'resolved' and usually throw an error in the case of 'reject'.
+
+```javascript
+var promise = new Promise(function(resolve, reject) {
+  // do a thing, possibly async, then…
+
+  if (/* everything turned out fine */) {
+    resolve("Stuff worked!");
+  }
+  else {
+    reject(Error("It broke"));
+  }
+});
+```
+
+We can perform calculations in the if-else ladder and return some calculated values in the `resolve()` and `reject()` functions.
+
+We can perform actions based on whether the promise resolved or fails and gets rejected with a `then()` and `catch()` respectively.
+
+```javascript
+let promise = new Promise((resolve, reject) => {
+  /*
+  .
+  ..
+  do all the tasks that are required
+  ..
+  .
+  */
+
+  // resolve or reject depending on the result
+  if (valueSuccessful) {
+    // do actions on success
+    // with valueSuccessful
+    resolve(resolvedSuccessValue);
+  } else {
+    // do actions on failure
+    // with valueFailed
+    reject(rejectedFailureValue);
+  }
+});
+
+promise
+  .then(resolvedSuccessValue => {
+    // do some actions with
+    // resolvedSuccessValue
+    console.log("Successful : " + resolvedSuccessValue);
+  })
+  .catch(rejectedFailureValue => {
+    // do some actions with
+    // rejectedFailureValue
+    console.log("Fail : " + rejectedFailureValue);
+  });
+```
